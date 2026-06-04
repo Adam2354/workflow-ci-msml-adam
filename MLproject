@@ -1,5 +1,0 @@
-name: telco-churn-project
-
-entry_points:
-  main:
-    command: "python modelling.py"
