@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MSML-CAPSTONE/Workflow-CI/mlruns/816140100767446028/c4cb062e397a4ce5a340734f227b426b/artifacts
+end_time: 1780542432461
+entry_point_name: ''
+experiment_id: '816140100767446028'
+lifecycle_stage: active
+run_id: c4cb062e397a4ce5a340734f227b426b
+run_name: unruly-moth-328
+run_uuid: c4cb062e397a4ce5a340734f227b426b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780542416217
+status: 3
+tags: []
+user_id: khoir
