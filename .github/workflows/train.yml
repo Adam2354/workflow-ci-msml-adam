@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install mlflow
+          pip install mlflow==2.19.0
 
       - name: Verify Files
         run: |
@@ -30,6 +30,8 @@ jobs:
           ls MLProject
 
       - name: Run MLflow Project
+        env:
+          MLFLOW_ALLOW_FILE_STORE: "true"
         run: |
           mlflow run ./MLProject
 
