@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MSML-CAPSTONE/Workflow-CI/MLProject/mlruns/0/fae5f83ea2ec4b5db7b38eab1926314a/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fae5f83ea2ec4b5db7b38eab1926314a
+run_name: bittersweet-ox-5
+run_uuid: fae5f83ea2ec4b5db7b38eab1926314a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780659850046
+status: 1
+tags: []
+user_id: khoir
