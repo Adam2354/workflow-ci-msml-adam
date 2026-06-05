@@ -1,6 +1,7 @@
 import pandas as pd
 import mlflow
 import mlflow.sklearn
+import joblib
 
 from pathlib import Path
 
@@ -27,7 +28,6 @@ def main():
 
     dataset_path = (
         current_dir /
-        "dataset" /
         "telco_churn_preprocessing.csv"
     )
 
@@ -61,9 +61,11 @@ def main():
     # ==================================================
     # MLflow Tracking
     # ==================================================
-    mlflow.set_experiment("Telco_Churn_Classification")
+    mlflow.set_experiment(
+        "Telco_Churn_Classification"
+    )
 
-    # Basic -> gunakan autolog
+    # Basic Kriteria 3 -> gunakan autolog
     mlflow.sklearn.autolog()
 
     with mlflow.start_run():
@@ -78,20 +80,40 @@ def main():
             random_state=42
         )
 
-        model.fit(X_train, y_train)
+        model.fit(
+            X_train,
+            y_train
+        )
 
         # ==============================================
-        # Prediksi
+        # Prediction
         # ==============================================
-        y_pred = model.predict(X_test)
+        y_pred = model.predict(
+            X_test
+        )
 
         # ==============================================
-        # Evaluasi
+        # Evaluation
         # ==============================================
-        accuracy = accuracy_score(y_test, y_pred)
-        precision = precision_score(y_test, y_pred)
-        recall = recall_score(y_test, y_pred)
-        f1 = f1_score(y_test, y_pred)
+        accuracy = accuracy_score(
+            y_test,
+            y_pred
+        )
+
+        precision = precision_score(
+            y_test,
+            y_pred
+        )
+
+        recall = recall_score(
+            y_test,
+            y_pred
+        )
+
+        f1 = f1_score(
+            y_test,
+            y_pred
+        )
 
         print("\nHASIL EVALUASI")
         print("-" * 40)
@@ -100,6 +122,22 @@ def main():
         print(f"Precision : {precision:.4f}")
         print(f"Recall    : {recall:.4f}")
         print(f"F1 Score  : {f1:.4f}")
+
+        # ==============================================
+        # Save Model Artifact
+        # ==============================================
+        model_path = (
+            current_dir /
+            "model.pkl"
+        )
+
+        joblib.dump(
+            model,
+            model_path
+        )
+
+        print("\nModel berhasil disimpan:")
+        print(model_path)
 
     print("\nTraining selesai.")
     print("Buka MLflow UI untuk melihat hasil tracking.")

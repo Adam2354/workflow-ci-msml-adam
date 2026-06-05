@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/MSML-CAPSTONE/Workflow-CI/mlruns/452730075297850162/04f24d5ae7ef47a7bb82e05765b2f482/artifacts
+end_time: 1780626614852
+entry_point_name: ''
+experiment_id: '452730075297850162'
+lifecycle_stage: active
+run_id: 04f24d5ae7ef47a7bb82e05765b2f482
+run_name: welcoming-lynx-49
+run_uuid: 04f24d5ae7ef47a7bb82e05765b2f482
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780626597949
+status: 3
+tags: []
+user_id: khoir

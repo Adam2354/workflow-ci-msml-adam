@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  train-model:
+  train:
 
     runs-on: ubuntu-latest
 
@@ -22,16 +22,20 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install pandas scikit-learn mlflow joblib
+
+      - name: Verify Files
+        run: |
+          ls
+          ls MLProject
 
       - name: Run Training
         run: |
+          cd MLProject
           python modelling.py
 
-      - name: Upload MLflow Artifacts
+      - name: Upload Model Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: mlflow-results
-          path: |
-            mlruns/
+          name: trained-model
+          path: MLProject/model.pkl

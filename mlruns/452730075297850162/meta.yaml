@@ -1,0 +1,6 @@
+artifact_location: file:///D:/MSML-CAPSTONE/Workflow-CI/mlruns/452730075297850162
+creation_time: 1780626594964
+experiment_id: '452730075297850162'
+last_update_time: 1780626594964
+lifecycle_stage: active
+name: Telco_Churn_Classification
