@@ -67,80 +67,77 @@ def main():
 
     # Basic Kriteria 3 -> gunakan autolog
     mlflow.sklearn.autolog()
-
-    with mlflow.start_run():
-
         # ==============================================
         # Training Model
         # ==============================================
-        print("\nTraining Random Forest...")
+    print("\nTraining Random Forest...")
 
-        model = RandomForestClassifier(
-            n_estimators=100,
-            random_state=42
-        )
+    model = RandomForestClassifier(
+        n_estimators=100,
+        random_state=42
+    )
 
-        model.fit(
-            X_train,
-            y_train
-        )
+    model.fit(
+        X_train,
+        y_train
+    )
 
-        # ==============================================
-        # Prediction
-        # ==============================================
-        y_pred = model.predict(
-            X_test
-        )
+    # ==============================================
+    # Prediction
+    # ==============================================
+    y_pred = model.predict(
+        X_test
+    )
 
-        # ==============================================
-        # Evaluation
-        # ==============================================
-        accuracy = accuracy_score(
-            y_test,
-            y_pred
-        )
+    # ==============================================
+    # Evaluation
+    # ==============================================
+    accuracy = accuracy_score(
+        y_test,
+        y_pred
+    )
 
-        precision = precision_score(
-            y_test,
-            y_pred
-        )
+    precision = precision_score(
+        y_test,
+        y_pred
+    )
 
-        recall = recall_score(
-            y_test,
-            y_pred
-        )
+    recall = recall_score(
+        y_test,
+        y_pred
+    )
 
-        f1 = f1_score(
-            y_test,
-            y_pred
-        )
+    f1 = f1_score(
+        y_test,
+        y_pred
+    )
 
-        print("\nHASIL EVALUASI")
-        print("-" * 40)
+    print("\nHASIL EVALUASI")
+    print("-" * 40)
 
-        print(f"Accuracy  : {accuracy:.4f}")
-        print(f"Precision : {precision:.4f}")
-        print(f"Recall    : {recall:.4f}")
-        print(f"F1 Score  : {f1:.4f}")
+    print(f"Accuracy  : {accuracy:.4f}")
+    print(f"Precision : {precision:.4f}")
+    print(f"Recall    : {recall:.4f}")
+    print(f"F1 Score  : {f1:.4f}")
 
-        # ==============================================
-        # Save Model Artifact
-        # ==============================================
-        model_path = (
-            current_dir /
-            "model.pkl"
-        )
+    # ==============================================
+    # Save Model Artifact
+    # ==============================================
+    model_path = (
+        current_dir /
+        "model.pkl"
+    )
 
-        joblib.dump(
-            model,
-            model_path
-        )
+    joblib.dump(
+        model,
+        model_path
+    )
 
-        print("\nModel berhasil disimpan:")
-        print(model_path)
+    print("\nModel berhasil disimpan:")
+    print(model_path)
 
-    print("\nTraining selesai.")
-    print("Buka MLflow UI untuk melihat hasil tracking.")
+print("\nTraining selesai.")
+print("Buka MLflow UI untuk melihat hasil tracking.")
 
 
 if __name__ == "__main__":
